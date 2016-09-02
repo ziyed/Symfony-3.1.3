@@ -19,84 +19,121 @@ class __TwigTemplate_3e8fe802bb3aab10b241f7918b07341befca9d9c7196c4e23cd9a0b7b7a
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_14357a42e153ca5c8cd2c4200efbee170ac9d8bf1de3b26275142425d4bba3b8 = $this->env->getExtension("native_profiler");
-        $__internal_14357a42e153ca5c8cd2c4200efbee170ac9d8bf1de3b26275142425d4bba3b8->enter($__internal_14357a42e153ca5c8cd2c4200efbee170ac9d8bf1de3b26275142425d4bba3b8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "base.html.twig"));
+        $__internal_e208ccdaccadd827156da56345778ed1793daee1c81231bdee144a6a4e2831f9 = $this->env->getExtension("native_profiler");
+        $__internal_e208ccdaccadd827156da56345778ed1793daee1c81231bdee144a6a4e2831f9->enter($__internal_e208ccdaccadd827156da56345778ed1793daee1c81231bdee144a6a4e2831f9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "base.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset=\"UTF-8\" />
-        <title>";
-        // line 5
-        $this->displayBlock('title', $context, $blocks);
-        echo "</title>
-        ";
-        // line 6
-        $this->displayBlock('stylesheets', $context, $blocks);
-        // line 7
-        echo "        <link rel=\"icon\" type=\"image/x-icon\" href=\"";
+<html lang=\"en\">
+  <head>
+    <meta charset=\"utf-8\">
+    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name=\"description\" content=\"\">
+    <meta name=\"author\" content=\"\">
+    <link rel=\"icon\" type=\"image/x-icon\" href=\"";
+        // line 10
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
-    </head>
-    <body>
-        ";
-        // line 10
-        $this->displayBlock('body', $context, $blocks);
+    <title>";
         // line 11
-        echo "        ";
-        $this->displayBlock('javascripts', $context, $blocks);
+        $this->displayBlock('title', $context, $blocks);
+        echo "</title>
+    ";
         // line 12
-        echo "    </body>
+        $this->displayBlock('stylesheets', $context, $blocks);
+        // line 16
+        echo "  </head>
+
+  <body>
+
+    ";
+        // line 20
+        $this->loadTemplate("common/header.html.twig", "base.html.twig", 20)->display($context);
+        // line 21
+        echo "
+    <div class=\"container\">
+
+      ";
+        // line 24
+        $this->displayBlock('body', $context, $blocks);
+        // line 25
+        echo "
+    </div><!-- /.container -->
+
+    ";
+        // line 28
+        $this->loadTemplate("common/footer.html.twig", "base.html.twig", 28)->display($context);
+        // line 29
+        echo "    
+    ";
+        // line 30
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 34
+        echo "  </body>
 </html>
 ";
         
-        $__internal_14357a42e153ca5c8cd2c4200efbee170ac9d8bf1de3b26275142425d4bba3b8->leave($__internal_14357a42e153ca5c8cd2c4200efbee170ac9d8bf1de3b26275142425d4bba3b8_prof);
-
-    }
-
-    // line 5
-    public function block_title($context, array $blocks = array())
-    {
-        $__internal_fa9d44cb0a1d44cd1de8b99c0bad5426febe83d7f0160d9d396ceda8c8bf49c4 = $this->env->getExtension("native_profiler");
-        $__internal_fa9d44cb0a1d44cd1de8b99c0bad5426febe83d7f0160d9d396ceda8c8bf49c4->enter($__internal_fa9d44cb0a1d44cd1de8b99c0bad5426febe83d7f0160d9d396ceda8c8bf49c4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
-
-        echo "Welcome!";
-        
-        $__internal_fa9d44cb0a1d44cd1de8b99c0bad5426febe83d7f0160d9d396ceda8c8bf49c4->leave($__internal_fa9d44cb0a1d44cd1de8b99c0bad5426febe83d7f0160d9d396ceda8c8bf49c4_prof);
-
-    }
-
-    // line 6
-    public function block_stylesheets($context, array $blocks = array())
-    {
-        $__internal_f772ac4d816418229d7ea00e9ec97f24304ddbe9798811969f51e27a2ddcb37b = $this->env->getExtension("native_profiler");
-        $__internal_f772ac4d816418229d7ea00e9ec97f24304ddbe9798811969f51e27a2ddcb37b->enter($__internal_f772ac4d816418229d7ea00e9ec97f24304ddbe9798811969f51e27a2ddcb37b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
-
-        
-        $__internal_f772ac4d816418229d7ea00e9ec97f24304ddbe9798811969f51e27a2ddcb37b->leave($__internal_f772ac4d816418229d7ea00e9ec97f24304ddbe9798811969f51e27a2ddcb37b_prof);
-
-    }
-
-    // line 10
-    public function block_body($context, array $blocks = array())
-    {
-        $__internal_50c9c7b831c2a753fb7ec1783a8488a9f48e874013e3e406d313834938273952 = $this->env->getExtension("native_profiler");
-        $__internal_50c9c7b831c2a753fb7ec1783a8488a9f48e874013e3e406d313834938273952->enter($__internal_50c9c7b831c2a753fb7ec1783a8488a9f48e874013e3e406d313834938273952_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
-
-        
-        $__internal_50c9c7b831c2a753fb7ec1783a8488a9f48e874013e3e406d313834938273952->leave($__internal_50c9c7b831c2a753fb7ec1783a8488a9f48e874013e3e406d313834938273952_prof);
+        $__internal_e208ccdaccadd827156da56345778ed1793daee1c81231bdee144a6a4e2831f9->leave($__internal_e208ccdaccadd827156da56345778ed1793daee1c81231bdee144a6a4e2831f9_prof);
 
     }
 
     // line 11
-    public function block_javascripts($context, array $blocks = array())
+    public function block_title($context, array $blocks = array())
     {
-        $__internal_f0851a67bb4d787d9b6b38d3111a4fbc57dd7d1439888fd9de068d117d71a7a7 = $this->env->getExtension("native_profiler");
-        $__internal_f0851a67bb4d787d9b6b38d3111a4fbc57dd7d1439888fd9de068d117d71a7a7->enter($__internal_f0851a67bb4d787d9b6b38d3111a4fbc57dd7d1439888fd9de068d117d71a7a7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_5056e0b779f08456133930ae4d1556cdc60213fcae40c31370952b3305652afd = $this->env->getExtension("native_profiler");
+        $__internal_5056e0b779f08456133930ae4d1556cdc60213fcae40c31370952b3305652afd->enter($__internal_5056e0b779f08456133930ae4d1556cdc60213fcae40c31370952b3305652afd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+
+        echo "Welcome!";
+        
+        $__internal_5056e0b779f08456133930ae4d1556cdc60213fcae40c31370952b3305652afd->leave($__internal_5056e0b779f08456133930ae4d1556cdc60213fcae40c31370952b3305652afd_prof);
+
+    }
+
+    // line 12
+    public function block_stylesheets($context, array $blocks = array())
+    {
+        $__internal_7a009e7cd4d283f99cefe1159ab6355033b5b4daeadd76855f8c0141e18a555b = $this->env->getExtension("native_profiler");
+        $__internal_7a009e7cd4d283f99cefe1159ab6355033b5b4daeadd76855f8c0141e18a555b->enter($__internal_7a009e7cd4d283f99cefe1159ab6355033b5b4daeadd76855f8c0141e18a555b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+
+        // line 13
+        echo "        <link href=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("css/bootstrap.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" />
+        <link href=\"";
+        // line 14
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("css/style.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" />
+    ";
+        
+        $__internal_7a009e7cd4d283f99cefe1159ab6355033b5b4daeadd76855f8c0141e18a555b->leave($__internal_7a009e7cd4d283f99cefe1159ab6355033b5b4daeadd76855f8c0141e18a555b_prof);
+
+    }
+
+    // line 24
+    public function block_body($context, array $blocks = array())
+    {
+        $__internal_743eca94c6bd7e22e6f2e44daa892cc9d154268b0ff0b0357b1c7544e07b824d = $this->env->getExtension("native_profiler");
+        $__internal_743eca94c6bd7e22e6f2e44daa892cc9d154268b0ff0b0357b1c7544e07b824d->enter($__internal_743eca94c6bd7e22e6f2e44daa892cc9d154268b0ff0b0357b1c7544e07b824d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         
-        $__internal_f0851a67bb4d787d9b6b38d3111a4fbc57dd7d1439888fd9de068d117d71a7a7->leave($__internal_f0851a67bb4d787d9b6b38d3111a4fbc57dd7d1439888fd9de068d117d71a7a7_prof);
+        $__internal_743eca94c6bd7e22e6f2e44daa892cc9d154268b0ff0b0357b1c7544e07b824d->leave($__internal_743eca94c6bd7e22e6f2e44daa892cc9d154268b0ff0b0357b1c7544e07b824d_prof);
+
+    }
+
+    // line 30
+    public function block_javascripts($context, array $blocks = array())
+    {
+        $__internal_a3f3faee831ba8b4a50ccd1d5a7f31fadb5728cafb8170a669714eb17184c5d7 = $this->env->getExtension("native_profiler");
+        $__internal_a3f3faee831ba8b4a50ccd1d5a7f31fadb5728cafb8170a669714eb17184c5d7->enter($__internal_a3f3faee831ba8b4a50ccd1d5a7f31fadb5728cafb8170a669714eb17184c5d7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+
+        // line 31
+        echo "        <script src=\"js/jquery.min.js\"></script>
+        <script src=\"js/bootstrap.js\"></script>    
+    ";
+        
+        $__internal_a3f3faee831ba8b4a50ccd1d5a7f31fadb5728cafb8170a669714eb17184c5d7->leave($__internal_a3f3faee831ba8b4a50ccd1d5a7f31fadb5728cafb8170a669714eb17184c5d7_prof);
 
     }
 
@@ -112,20 +149,42 @@ class __TwigTemplate_3e8fe802bb3aab10b241f7918b07341befca9d9c7196c4e23cd9a0b7b7a
 
     public function getDebugInfo()
     {
-        return array (  93 => 11,  82 => 10,  71 => 6,  59 => 5,  50 => 12,  47 => 11,  45 => 10,  38 => 7,  36 => 6,  32 => 5,  26 => 1,);
+        return array (  132 => 31,  126 => 30,  115 => 24,  106 => 14,  101 => 13,  95 => 12,  83 => 11,  74 => 34,  72 => 30,  69 => 29,  67 => 28,  62 => 25,  60 => 24,  55 => 21,  53 => 20,  47 => 16,  45 => 12,  41 => 11,  37 => 10,  26 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
-/* <html>*/
-/*     <head>*/
-/*         <meta charset="UTF-8" />*/
-/*         <title>{% block title %}Welcome!{% endblock %}</title>*/
-/*         {% block stylesheets %}{% endblock %}*/
-/*         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />*/
-/*     </head>*/
-/*     <body>*/
-/*         {% block body %}{% endblock %}*/
-/*         {% block javascripts %}{% endblock %}*/
-/*     </body>*/
+/* <html lang="en">*/
+/*   <head>*/
+/*     <meta charset="utf-8">*/
+/*     <meta http-equiv="X-UA-Compatible" content="IE=edge">*/
+/*     <meta name="viewport" content="width=device-width, initial-scale=1">*/
+/*     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->*/
+/*     <meta name="description" content="">*/
+/*     <meta name="author" content="">*/
+/*     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />*/
+/*     <title>{% block title %}Welcome!{% endblock %}</title>*/
+/*     {% block stylesheets %}*/
+/*         <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />*/
+/*         <link href="{{ asset('css/style.css') }}" rel="stylesheet" />*/
+/*     {% endblock %}*/
+/*   </head>*/
+/* */
+/*   <body>*/
+/* */
+/*     {% include 'common/header.html.twig' %}*/
+/* */
+/*     <div class="container">*/
+/* */
+/*       {% block body %}{% endblock %}*/
+/* */
+/*     </div><!-- /.container -->*/
+/* */
+/*     {% include 'common/footer.html.twig' %}*/
+/*     */
+/*     {% block javascripts %}*/
+/*         <script src="js/jquery.min.js"></script>*/
+/*         <script src="js/bootstrap.js"></script>    */
+/*     {% endblock %}*/
+/*   </body>*/
 /* </html>*/
 /* */
