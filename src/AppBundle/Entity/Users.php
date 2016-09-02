@@ -41,6 +41,11 @@ class Users
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
      */
     private $email;
+    
+    /**
+     * @var string
+     */
+    private $phone;
 
     /**
      * @var string
@@ -248,5 +253,29 @@ class Users
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }   
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     *
+     * @return Users
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+    
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
     }
 }
