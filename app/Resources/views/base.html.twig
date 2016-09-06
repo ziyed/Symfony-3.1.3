@@ -19,10 +19,10 @@
 
     {% include 'common/header.html.twig' %}
 
-    <div class="container">
-
-      {% block body %}{% endblock %}
-
+    <div class="container-fluid">
+        <div class="row content">
+            {% block body %}{% endblock %}            
+        </div>
     </div><!-- /.container -->
 
     {% include 'common/footer.html.twig' %}

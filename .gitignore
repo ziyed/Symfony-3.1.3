@@ -1,3 +1,4 @@
-/nbproject/private/
-/var/cache/*
+/nbproject
+/var/cache/dev/*
+/var/cache/prod/*
 /var/logs/*
