@@ -8,12 +8,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class HomeController extends Controller {
 
     /**
-     * @Route("/home", name="homepage")
+     * @Route("/", name="homepage")
      */
     public function indexAction(){
         
-         return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
-        ]);
+        return $this->render('home/index.html.twig');
     }
 }
