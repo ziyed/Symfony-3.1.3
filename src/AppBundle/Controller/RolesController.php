@@ -12,7 +12,7 @@ use AppBundle\Form\RolesType;
 /**
  * Roles controller.
  *
- * @Route("/roles")
+ * @Route("/admin/roles")
  */
 class RolesController extends Controller
 {

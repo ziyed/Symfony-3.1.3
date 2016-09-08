@@ -27,6 +27,19 @@ AppBundle\Entity\Users:
             length: 255
             options:
                 fixed: false
+        role:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        plainPassword:
+            type: string
+            nullable: true
+            length: 500
+            options:
+                fixed: false
+            column: plain_password    
         email:
             type: string
             nullable: false

@@ -2,8 +2,9 @@
 
 {% block body %}
     <h1>Roles list</h1>
-
-    <table>
+    <a class="btn btn-success" href="{{ path('roles_new') }}">Create a new entry</a>
+     <br/><br/>
+    <table class="table table-bordered table-striped"
         <thead>
             <tr>
                 <th>Id</th>
@@ -34,10 +35,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('roles_new') }}">Create a new entry</a>
-        </li>
-    </ul>
 {% endblock %}

@@ -3,6 +3,9 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Users
@@ -10,8 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="users", uniqueConstraints={@ORM\UniqueConstraint(name="users_email_unique", columns={"email"})})
  * @ORM\Entity
  */
-class Users
-{
+class Users implements UserInterface {
+
     /**
      * @var integer
      *
@@ -41,18 +44,28 @@ class Users
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
      */
     private $email;
-    
+
     /**
      * @var string
      */
     private $phone;
 
     /**
+     * @ORM\Column(type="string", length=50)
+     */
+    protected $role;
+
+    /**
+     * @Assert\Length(max=4096)
+     */
+    protected $plainPassword;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255, nullable=false)
      */
-    private $password;
+    protected $password;
 
     /**
      * @var string
@@ -75,15 +88,29 @@ class Users
      */
     private $updatedAt;
 
+    public function eraseCredentials() {
+        return null;
+    }
 
+    // Roles
+    public function getRole() {
+        return $this->role;
+    }
+
+    public function setRole($role) {
+        $this->role = $role;
+    }
+
+    public function getRoles() {
+        return [$this->getRole()];
+    }
 
     /**
      * Get id
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -94,10 +121,9 @@ class Users
      *
      * @return Users
      */
-    public function setRoleId($roleId)
-    {
+    public function setRoleId($roleId) {
         $this->roleId = $roleId;
-    
+
         return $this;
     }
 
@@ -106,8 +132,7 @@ class Users
      *
      * @return integer
      */
-    public function getRoleId()
-    {
+    public function getRoleId() {
         return $this->roleId;
     }
 
@@ -118,10 +143,9 @@ class Users
      *
      * @return Users
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
-    
+
         return $this;
     }
 
@@ -130,8 +154,7 @@ class Users
      *
      * @return string
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -142,10 +165,9 @@ class Users
      *
      * @return Users
      */
-    public function setEmail($email)
-    {
+    public function setEmail($email) {
         $this->email = $email;
-    
+
         return $this;
     }
 
@@ -154,8 +176,7 @@ class Users
      *
      * @return string
      */
-    public function getEmail()
-    {
+    public function getEmail() {
         return $this->email;
     }
 
@@ -166,10 +187,9 @@ class Users
      *
      * @return Users
      */
-    public function setPassword($password)
-    {
+    public function setPassword($password) {
         $this->password = $password;
-    
+
         return $this;
     }
 
@@ -178,9 +198,20 @@ class Users
      *
      * @return string
      */
-    public function getPassword()
-    {
+    public function getPassword() {
         return $this->password;
+    }
+
+    public function getPlainPassword() {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword($plainPassword) {
+        $this->plainPassword = $plainPassword;
+    }
+
+    public function getSalt() {
+        return null;
     }
 
     /**
@@ -190,10 +221,9 @@ class Users
      *
      * @return Users
      */
-    public function setRememberToken($rememberToken)
-    {
+    public function setRememberToken($rememberToken) {
         $this->rememberToken = $rememberToken;
-    
+
         return $this;
     }
 
@@ -202,8 +232,7 @@ class Users
      *
      * @return string
      */
-    public function getRememberToken()
-    {
+    public function getRememberToken() {
         return $this->rememberToken;
     }
 
@@ -214,10 +243,9 @@ class Users
      *
      * @return Users
      */
-    public function setCreatedAt($createdAt)
-    {
+    public function setCreatedAt($createdAt) {
         $this->createdAt = $createdAt;
-    
+
         return $this;
     }
 
@@ -226,8 +254,7 @@ class Users
      *
      * @return \DateTime
      */
-    public function getCreatedAt()
-    {
+    public function getCreatedAt() {
         return $this->createdAt;
     }
 
@@ -238,10 +265,9 @@ class Users
      *
      * @return Users
      */
-    public function setUpdatedAt($updatedAt)
-    {
+    public function setUpdatedAt($updatedAt) {
         $this->updatedAt = $updatedAt;
-    
+
         return $this;
     }
 
@@ -250,10 +276,9 @@ class Users
      *
      * @return \DateTime
      */
-    public function getUpdatedAt()
-    {
+    public function getUpdatedAt() {
         return $this->updatedAt;
-    }   
+    }
 
     /**
      * Set phone
@@ -262,10 +287,9 @@ class Users
      *
      * @return Users
      */
-    public function setPhone($phone)
-    {
+    public function setPhone($phone) {
         $this->phone = $phone;
-    
+
         return $this;
     }
 
@@ -274,8 +298,12 @@ class Users
      *
      * @return string
      */
-    public function getPhone()
-    {
+    public function getPhone() {
         return $this->phone;
     }
+
+    public function getUsername() {
+        return $this->email;
+    }
+
 }
