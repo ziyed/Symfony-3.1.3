@@ -9,8 +9,6 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Createdat</th>
-                <th>Updatedat</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -19,17 +17,9 @@
             <tr>
                 <td><a href="{{ path('roles_show', { 'id': role.id }) }}">{{ role.id }}</a></td>
                 <td>{{ role.name }}</td>
-                <td>{% if role.createdAt %}{{ role.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if role.updatedAt %}{{ role.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('roles_show', { 'id': role.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('roles_edit', { 'id': role.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a class="btn btn-info" href="{{ path('roles_show', { 'id': role.id }) }}">View</a>
+                    <a class="btn btn-success" href="{{ path('roles_edit', { 'id': role.id }) }}">Edit</a>                    
                 </td>
             </tr>
         {% endfor %}

@@ -8,14 +8,11 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Roleid</th>
+                <th>Role Name</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Password</th>
-                <th>Remembertoken</th>
-                <th>Createdat</th>
-                <th>Updatedat</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -23,23 +20,14 @@
         {% for user in users %}
             <tr>
                 <td><a href="{{ path('users_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
-                <td>{{ user.roleId }}</td>
+                <td>{{ user.role }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.phone }}</td>
-                <td>{{ user.password }}</td>
-                <td>{{ user.rememberToken }}</td>
-                <td>{% if user.createdAt %}{{ user.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if user.updatedAt %}{{ user.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ user.plainpassword }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('users_show', { 'id': user.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('users_edit', { 'id': user.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a class="btn btn-info" href="{{ path('users_show', { 'id': user.id }) }}">View</a>
+                    <a class="btn btn-success" href="{{ path('users_edit', { 'id': user.id }) }}">Edit</a>
                 </td>
             </tr>
         {% endfor %}

@@ -60,7 +60,7 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
     }
 
     protected function getDefaultSuccessRedirectUrl()
-    {
+    {        
         return $this->router->generate('users_index');
     }
 }

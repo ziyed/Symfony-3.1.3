@@ -6,8 +6,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 use AppBundle\Entity\Users;
 use AppBundle\Form\UsersType;
+use AppBundle\Form\ChangePasswordType;
 
 /**
  * Users controller.
@@ -136,5 +138,28 @@ class UsersController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+    
+    /**
+     * @Route("/admin/users/change/password", name="change_password")
+     */
+    public function changepAction(Request $request){        
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('AppBundle:Users')->find($this->getUser()->getId());        
+        $form = $this->createForm('AppBundle\Form\ChangePasswordType', $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {            
+            $encoder = $this->get('security.password_encoder');
+            $password = $encoder->encodePassword($user, $user->getPlainPassword());
+            $user->setPassword($password);
+            // Save
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            $this->addFlash('success', 'Password Changed Successfully!');
+            return $this->redirectToRoute('change_password');
+        }
+        return $this->render('users/rchangePassword.html.twig', ['form' => $form->createView()]);
     }
 }

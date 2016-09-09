@@ -27,6 +27,7 @@ class RegistrationController extends Controller
 
             // Set their role
             $user->setRole('ROLE_USER');
+            $user->setRoleId(2);
 
             // Save
             $em = $this->getDoctrine()->getManager();

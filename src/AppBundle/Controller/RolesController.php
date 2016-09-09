@@ -45,12 +45,19 @@ class RolesController extends Controller
         $form = $this->createForm('AppBundle\Form\RolesType', $role);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) { 
+            //set date created & update
+            //$role->setCreatedAt(date('Y-m-d H:i:s'));
+            //$role->setUpdatedAt(date('Y-m-d H:i:s'));
+            
+           // $role->setCreatedAt('2016-09-09 16:53:10');
+            //$role->setUpdatedAt('2016-09-09 16:53:10');
+            
             $em = $this->getDoctrine()->getManager();
             $em->persist($role);
             $em->flush();
-
-            return $this->redirectToRoute('roles_show', array('id' => $role->getId()));
+            $this->addFlash('success', 'Role has been added!');
+            return $this->redirectToRoute('roles_index', array('id' => $role->getId()));
         }
 
         return $this->render('roles/new.html.twig', array(
@@ -91,8 +98,8 @@ class RolesController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($role);
             $em->flush();
-
-            return $this->redirectToRoute('roles_edit', array('id' => $role->getId()));
+            $this->addFlash('success', 'Role has been edited Successfully!');
+            return $this->redirectToRoute('roles_index');
         }
 
         return $this->render('roles/edit.html.twig', array(
@@ -118,7 +125,7 @@ class RolesController extends Controller
             $em->remove($role);
             $em->flush();
         }
-
+        $this->addFlash('success', 'Role has been deleted Successfully!');
         return $this->redirectToRoute('roles_index');
     }
 
